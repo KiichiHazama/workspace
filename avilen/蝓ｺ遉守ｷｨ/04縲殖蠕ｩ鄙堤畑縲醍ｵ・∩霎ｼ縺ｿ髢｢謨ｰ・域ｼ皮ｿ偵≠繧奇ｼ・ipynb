@@ -1,0 +1,522 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "c47a4984",
+   "metadata": {
+    "id": "04542143"
+   },
+   "source": [
+    "# 組み込み関数\n",
+    "\n",
+    "この章ではプログラミングの便利ツール**組み込み関数**について勉強しよう！  \n",
+    "組み込み関数：難しい操作無しで利用できる関数のこと。(例：print())  \n",
+    "\n",
+    "**プログラミングでは全てを1から作る必要はない。先人のプログラムをうまく利用しよう**\n",
+    "\n",
+    "というわけで、代表的な組み込み関数を実際に使ってみよう。\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1a78d040",
+   "metadata": {
+    "id": "7164a411"
+   },
+   "source": [
+    "## 1. 型の確認と変換\n",
+    "\n",
+    "プログラミングでは変数の型を変換しなければならない場合がある。\n",
+    "\n",
+    "以下の例を実行して体験してみよう。\n",
+    "\n",
+    "【例題1-1】まず、以下のように宣言した数字は、文字列と数値のどちらの型か確認しよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "2b3abfe0",
+   "metadata": {
+    "id": "70124f44"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'int'>\n",
+      "<class 'str'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "a=1\n",
+    "b='1'\n",
+    "print(type(a))\n",
+    "print(type(b))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ef8b083f",
+   "metadata": {
+    "id": "31e32c40"
+   },
+   "source": [
+    "変数の型を確認するには type() を使う。\n",
+    "\n",
+    "int,float,str,boolなどが出力されるはずだ。"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "aa09d2dd",
+   "metadata": {
+    "id": "fc87f8db"
+   },
+   "source": [
+    "### 型の変換\n",
+    "\n",
+    "【例題1-2】次のプログラムを実行して、文字列から数値への変換方法と数値から文字列への変換方法を学んでみよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "10c5b82b",
+   "metadata": {
+    "id": "9ad73fd5"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n",
+      "4.5\n",
+      "222\n"
+     ]
+    }
+   ],
+   "source": [
+    "a='1'\n",
+    "b='1.5'\n",
+    "c=2\n",
+    "print(int(a)*3)\n",
+    "print(float(b)*3)\n",
+    "print(str(c)*3)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fd2374b2",
+   "metadata": {
+    "id": "1c2350e4"
+   },
+   "source": [
+    "```\n",
+    "int(a)    <-- 変換したい変数をint()内に入れることでint型(整数型)に変換できる。\n",
+    "float(b)  <-- 変換したい変数をfloat()内に入れることでfloat型(浮動小数点数型)に変換できる。\n",
+    "str(c)    <-- 変換したい変数をstr()内に入れることでstr型(文字列型)に変換できる。\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fd7de6b8",
+   "metadata": {
+    "id": "b5a3e8f5"
+   },
+   "source": [
+    "**補足：**小数型を整数型に変換する場合、以下の2種類の方法をよく用いる。\n",
+    "- 小数を切り捨て：**int(変数)**\n",
+    "- 四捨五入：**round(変数)**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ec8f9e95",
+   "metadata": {
+    "id": "c22274a1"
+   },
+   "source": [
+    "## 2. len(),min(),max(),sum()\n",
+    "\n",
+    "それでは、さまざまな組み込み関数を使ってみよう。\n",
+    "\n",
+    "【例題2-1】lenを使ってみよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "ce4ad098",
+   "metadata": {
+    "id": "dc7ad573"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "AVILEN は 6 文字です\n"
+     ]
+    }
+   ],
+   "source": [
+    "name='AVILEN'\n",
+    "print(name,'は',len(name),'文字です')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c738dafa",
+   "metadata": {
+    "id": "cfbc8bd9"
+   },
+   "source": [
+    "len()はstr型に対しては文字数をカウントする組み込み関数である。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "a4b5a380",
+   "metadata": {
+    "id": "1343f458"
+   },
+   "outputs": [
+    {
+     "ename": "TypeError",
+     "evalue": "object of type 'int' has no len()",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[4], line 2\u001b[0m\n\u001b[1;32m      1\u001b[0m a\u001b[38;5;241m=\u001b[39m\u001b[38;5;241m10\u001b[39m\n\u001b[0;32m----> 2\u001b[0m \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;28;43mlen\u001b[39;49m\u001b[43m(\u001b[49m\u001b[43ma\u001b[49m\u001b[43m)\u001b[49m)\n",
+      "\u001b[0;31mTypeError\u001b[0m: object of type 'int' has no len()"
+     ]
+    }
+   ],
+   "source": [
+    "a=10\n",
+    "print(len(a))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "cc344dc7",
+   "metadata": {
+    "id": "db5f3208"
+   },
+   "source": [
+    "上記のように、intやfloatに対してlen()を使うとエラーになる。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "a78678ea",
+   "metadata": {
+    "id": "25e5b525"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n"
+     ]
+    }
+   ],
+   "source": [
+    "list=['A','B','C']\n",
+    "print(len(list))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f771a1f2",
+   "metadata": {
+    "id": "f1f8f48b"
+   },
+   "source": [
+    "listに対するlen()は、リストの要素数を返す関数となる。"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e179c67a",
+   "metadata": {
+    "id": "0ad7214f"
+   },
+   "source": [
+    "【例題2-2】min、maxを使ってみよう"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "fda9884f",
+   "metadata": {
+    "id": "8c90d833"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "8\n",
+      "A\n",
+      "Z\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(min(4,8,2,1,6))\n",
+    "print(max(4,8,2,1,6))\n",
+    "print(min('M','A','O','Z'))\n",
+    "print(max('M','A','O','Z'))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4b8dd82b",
+   "metadata": {
+    "id": "b919ae08"
+   },
+   "source": [
+    "- minは要素の中で最小値を取得する組み込み関数である  \n",
+    "  + アルファベットでは`A`が最小値になる\n",
+    "- maxは要素の中で最大値を取得する組み込み関数である\n",
+    "  + アルファベットでは`Z`が最大値になる。 \n",
+    "\n",
+    "**注意** \n",
+    "- len()の中に数値を入れるとエラーが起きるので注意しよう。\n",
+    "- min()とmax()の中に数値と文字列を混在させるとエラーが起きるので注意しよう。"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "36f966d8",
+   "metadata": {
+    "id": "4983d6d1"
+   },
+   "source": [
+    "リストに対してmin()/max()を使ってみよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "b831aaff",
+   "metadata": {
+    "id": "38f0b437"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "6\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(min([4,3,2,1,6]))\n",
+    "print(max([4,3,2,1,6]))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c6f7b691",
+   "metadata": {
+    "id": "8035bc5a"
+   },
+   "source": [
+    "リストに対しては、そのリストの中の最大値・最小値を返す関数になる。"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9e801ae2",
+   "metadata": {
+    "id": "c9fe7a96"
+   },
+   "source": [
+    "【例題2-3】sumを使ってみよう"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "1843033a",
+   "metadata": {
+    "id": "dd75f317",
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "ename": "TypeError",
+     "evalue": "sum() takes at most 2 arguments (5 given)",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[9], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;28;43msum\u001b[39;49m\u001b[43m(\u001b[49m\u001b[38;5;241;43m4\u001b[39;49m\u001b[43m,\u001b[49m\u001b[38;5;241;43m8\u001b[39;49m\u001b[43m,\u001b[49m\u001b[38;5;241;43m2\u001b[39;49m\u001b[43m,\u001b[49m\u001b[38;5;241;43m1\u001b[39;49m\u001b[43m,\u001b[49m\u001b[38;5;241;43m6\u001b[39;49m\u001b[43m)\u001b[49m)\n",
+      "\u001b[0;31mTypeError\u001b[0m: sum() takes at most 2 arguments (5 given)"
+     ]
+    }
+   ],
+   "source": [
+    "print(sum(4,8,2,1,6))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "45ee3f27",
+   "metadata": {
+    "id": "2302c3b9"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "21\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(sum([4,8,2,1,6]))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9304d595",
+   "metadata": {
+    "id": "4c62cef4"
+   },
+   "source": [
+    "sumはリストに対して使用できる関数で、リスト内の要素を全て足した結果を返す。\n",
+    "\n",
+    "文字列リストに対しては使用するとエラーになる。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "27002e81",
+   "metadata": {
+    "id": "38265452"
+   },
+   "outputs": [
+    {
+     "ename": "TypeError",
+     "evalue": "unsupported operand type(s) for +: 'int' and 'str'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[11], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;28;43msum\u001b[39;49m\u001b[43m(\u001b[49m\u001b[43m[\u001b[49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[38;5;124;43mM\u001b[39;49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[43m,\u001b[49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[38;5;124;43mA\u001b[39;49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[43m,\u001b[49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[38;5;124;43mO\u001b[39;49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[43m,\u001b[49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[38;5;124;43mZ\u001b[39;49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[43m]\u001b[49m\u001b[43m)\u001b[49m)\n",
+      "\u001b[0;31mTypeError\u001b[0m: unsupported operand type(s) for +: 'int' and 'str'"
+     ]
+    }
+   ],
+   "source": [
+    "print(sum(['M','A','O','Z']))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f6d8e487",
+   "metadata": {
+    "id": "8cc6ad09"
+   },
+   "source": [
+    "【問題】じゅげむはひらがなで書くと何文字なのか調べたい。  \n",
+    "変数`jugemu`に名前を書いておいたので組み込み関数を用いて何文字か出力せよ。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "6cb8d755",
+   "metadata": {
+    "id": "1d3d74be"
+   },
+   "outputs": [],
+   "source": [
+    "# 【問題】を回答する前に実行してください。\n",
+    "jugemu = \"じゅげむじゅげむごこうのすりきれかいじゃりすいぎょのすいぎょうまつうんらいまつふうらいまつくうねるところにすむところやぶらこうじのぶらこうじぱいぽぱいぽぱいぽのしゅーりんがんしゅーりんがんのぐーりんだいぐーりんだいのぽんぽこぴーのぽんぽこなーのちょうきゅうめいのちょうすけ\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1dd3fbfe",
+   "metadata": {},
+   "source": [
+    "回答欄は以下です。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "d77d32ed",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "136\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(len(jugemu))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "48d57e77",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "colab": {
+   "provenance": []
+  },
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.12"
+  },
+  "vscode": {
+   "interpreter": {
+    "hash": "31f2aee4e71d21fbe5cf8b01ff0e069b9275f58929596ceb00d14d90e3e16cd6"
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

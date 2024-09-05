@@ -1,0 +1,1787 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "52d7a8d4",
+   "metadata": {
+    "id": "03995a02"
+   },
+   "source": [
+    "# 2-0.変数と型\n",
+    "---\n",
+    "\n",
+    "この章では、プログラミングの基本的な概念である「変数」と「型」について学ぶ。\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "134fb61b",
+   "metadata": {
+    "id": "81067ac3"
+   },
+   "source": [
+    "### チュートリアル：Pythonでデータを表示してみよう\n",
+    "\n",
+    "まずは手始めに、Pythonでデータを入力・表示してみよう。\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "94cad151",
+   "metadata": {
+    "id": "d71fbb5c"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "29656585",
+   "metadata": {
+    "id": "7653f787"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3.34\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(3.34)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "07c5fb6e",
+   "metadata": {
+    "id": "de05160a"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "AVILEN\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"AVILEN\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3081d256",
+   "metadata": {
+    "id": "647ea01b"
+   },
+   "source": [
+    "# 2-1. 変数の型\n",
+    "---\n",
+    "\n",
+    "Pythonで扱うデータには、その性質を決めるさまざまな**「型」**が存在する。\n",
+    "\n",
+    "大きくは以下の4つだ。\n",
+    "\n",
+    "- 整数（int）　　例： `0`, `1`, `200`, `-10`\n",
+    "- 小数（float）　　例： `1.0`, `3.34`, `-0.05`, `1e4`\n",
+    "- 文字列（str）　　例: `\"oya　sumi.\"`, `\"a\"`, `\"ひらがな\"`, `\"30\"`, `\"\"`\n",
+    "- 真理値（bool）　　例: `True`, `False`\n",
+    "\n",
+    "真理値（真偽値）とは，`True`(真)または`False`(偽)のどちらかのみの型で，主に条件分岐をするために使う。  "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7a57946e",
+   "metadata": {
+    "id": "df036c2e"
+   },
+   "source": [
+    "### 型の確認\n",
+    "\n",
+    "変数の型を確認するには```type```関数を使う。"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ac7824fd",
+   "metadata": {
+    "id": "618987cb"
+   },
+   "source": [
+    "【例題】`False`の型を表示してみよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "a29b0fb4",
+   "metadata": {
+    "id": "703175d2"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'bool'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(type(False))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bb9ed02f",
+   "metadata": {
+    "id": "b2abc1bd"
+   },
+   "source": [
+    "【問題】「kata」の型を表示してみよう。"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d8fe4187",
+   "metadata": {
+    "id": "7fc31192"
+   },
+   "source": [
+    "- コードの中で文字列を書くときは'シングルクオーテーション'、もしくは\"ダブルクオーテーション\"で囲む必要がある"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "bf441771",
+   "metadata": {
+    "id": "5090bda0"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'str'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(type(\"kata\"))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e0621a8b",
+   "metadata": {
+    "id": "703eabd7"
+   },
+   "source": [
+    "【補足】プログラムでは実は`True`は数値の`1`, `False`は数値の`0`と等しい。"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4483d5ec",
+   "metadata": {
+    "id": "56dd378a"
+   },
+   "source": [
+    "### 数値と文字列の違い\n",
+    "\n",
+    "数値の場合、表記方法がint型、float型、str型の3通り存在する。"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "27cdca0d",
+   "metadata": {
+    "id": "ab3af379"
+   },
+   "source": [
+    "たとえば「`2`」と「`\"2\"`」はprintすると一緒の表記だが、コンピュータの中では違う型の変数として認識される。\n",
+    "\n",
+    "pythonはこの型を自動で判別してくれるので便利である。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "d213c37c",
+   "metadata": {
+    "id": "653a343c"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2\n",
+      "2.0\n",
+      "2\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(2)\n",
+    "print(2.0)\n",
+    "print(\"2\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "b2f9170c",
+   "metadata": {
+    "id": "fa260570"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'int'>\n",
+      "<class 'float'>\n",
+      "<class 'str'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "#int\n",
+    "print(type(2))\n",
+    "\n",
+    "#float\n",
+    "print(type(2.0))\n",
+    "\n",
+    "#str\n",
+    "print(type(\"2\"))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b62a40ad",
+   "metadata": {
+    "id": "42e23b0b"
+   },
+   "source": [
+    "# 2-2.演算\n",
+    "\n",
+    "---\n",
+    "\n",
+    "次に、プログラミングに必要不可欠な「演算」の知識を身につけよう。\n",
+    "\n",
+    "単純な計算機として演算を行ってみる。"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b5788aa0",
+   "metadata": {
+    "id": "b0a84aac"
+   },
+   "source": [
+    "### int型/float型の四則演算"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "024e0616",
+   "metadata": {
+    "id": "650cfb0e"
+   },
+   "source": [
+    "【例題】Pythonで簡単な計算を行ってみよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "5dca928f",
+   "metadata": {
+    "id": "085358cc"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5\n",
+      "5.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(2+3)\n",
+    "print(2.0+3.0)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "51c0677d",
+   "metadata": {
+    "id": "179c6a04"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "-1\n",
+      "-1.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(2-3)\n",
+    "print(2.0-3.0)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "f10f3461",
+   "metadata": {
+    "id": "83aaf0d8"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "6\n",
+      "6.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(2*3)\n",
+    "print(2.0*3.0)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "76df2e65",
+   "metadata": {
+    "id": "4d74567d"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0.6666666666666666\n",
+      "0.6666666666666666\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(2/3)\n",
+    "print(2.0/3.0)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c526ae61",
+   "metadata": {
+    "id": "c3440277"
+   },
+   "source": [
+    "【補足】int型の計算結果がfloat型(小数)になる場合、pythonは自動で判別してくれる(普通はできない。int型の計算結果はint型になる。)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "a6506d2c",
+   "metadata": {
+    "id": "40a253d6"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'float'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(type(2/3))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "db114e0b",
+   "metadata": {
+    "id": "80d55aed"
+   },
+   "source": [
+    "###  文字列(str)型の演算\n",
+    "\n",
+    "【例題】次に、値が文字列のデータを足してみよう"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "8ea7810c",
+   "metadata": {
+    "id": "56de3b7e"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "今夜は月が綺麗ですね\n"
+     ]
+    }
+   ],
+   "source": [
+    "print('今夜は月が'+'綺麗ですね')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f75715f2",
+   "metadata": {
+    "id": "a633cef5"
+   },
+   "source": [
+    "- このように、文字列を足すと、2つの文字列を結合することができる"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e765681c",
+   "metadata": {
+    "id": "1f2dbbfa"
+   },
+   "source": [
+    "### 数値をstr型で表記した場合の演算\n",
+    "\n",
+    "【例題】\"2\"と\"3\"を足してみよう"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "dec32541",
+   "metadata": {
+    "id": "2a951a21"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "23\n"
+     ]
+    }
+   ],
+   "source": [
+    "print('2'+'3')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f0585b35",
+   "metadata": {
+    "id": "3fe457e2"
+   },
+   "source": [
+    "数値もstr型で表記した場合は、計算ではなく結合の処理になることを覚えておこう。"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9e6d09aa",
+   "metadata": {
+    "id": "09ef0480"
+   },
+   "source": [
+    "【例題】\"2\"と\"3\"で四則演算ができるか試してみよう"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "16d5f8d0",
+   "metadata": {
+    "id": "f96b5f29"
+   },
+   "outputs": [
+    {
+     "ename": "TypeError",
+     "evalue": "unsupported operand type(s) for -: 'str' and 'str'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[17], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43m2\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;241;43m-\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43m3\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m)\n",
+      "\u001b[0;31mTypeError\u001b[0m: unsupported operand type(s) for -: 'str' and 'str'"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"2\"-\"3\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "0715d142",
+   "metadata": {
+    "id": "cead833b"
+   },
+   "outputs": [
+    {
+     "ename": "TypeError",
+     "evalue": "can't multiply sequence by non-int of type 'str'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[18], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43m2\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;241;43m*\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43m3\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m)\n",
+      "\u001b[0;31mTypeError\u001b[0m: can't multiply sequence by non-int of type 'str'"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"2\"*\"3\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "efeaa26c",
+   "metadata": {
+    "id": "4a933c6a"
+   },
+   "outputs": [
+    {
+     "ename": "TypeError",
+     "evalue": "unsupported operand type(s) for /: 'str' and 'str'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[19], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43m2\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;241;43m/\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43m3\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m)\n",
+      "\u001b[0;31mTypeError\u001b[0m: unsupported operand type(s) for /: 'str' and 'str'"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"2\"/\"3\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "79709a9d",
+   "metadata": {
+    "id": "bdae6a20"
+   },
+   "source": [
+    "実行すると全てエラーになるはずだ。これはstr型の数値では四則演算ができないことを表している。"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5fd84054",
+   "metadata": {
+    "id": "514c2932"
+   },
+   "source": [
+    "### int/float型とstr型の演算\n",
+    "\n",
+    "次に、型の違うデータを足してみる。\n",
+    "\n",
+    "【例題】\"2\"と3の足し算、および\"2.0\"と3.0の足し算を計算してみよう"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "085f277c",
+   "metadata": {
+    "id": "b2d8082b"
+   },
+   "outputs": [
+    {
+     "ename": "TypeError",
+     "evalue": "can only concatenate str (not \"int\") to str",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[20], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43m2\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;241;43m+\u001b[39;49m\u001b[38;5;241;43m3\u001b[39;49m)\n",
+      "\u001b[0;31mTypeError\u001b[0m: can only concatenate str (not \"int\") to str"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"2\"+3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "26fd7071",
+   "metadata": {
+    "id": "4e5900a3"
+   },
+   "outputs": [
+    {
+     "ename": "TypeError",
+     "evalue": "can only concatenate str (not \"float\") to str",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[24], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43m2.0\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;241;43m+\u001b[39;49m\u001b[38;5;241;43m3.0\u001b[39;49m)\n",
+      "\u001b[0;31mTypeError\u001b[0m: can only concatenate str (not \"float\") to str"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"2.0\"+3.0)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e37b5d67",
+   "metadata": {
+    "id": "c2e79230"
+   },
+   "source": [
+    "型が違うデータ同士では、基本的に演算はできないことを覚えておこう。(int型とfloat型の計算は例外的に可能)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7654b8a5",
+   "metadata": {
+    "id": "30930726"
+   },
+   "source": [
+    "### 例外 : int型×str型をやってみると…？\n",
+    "\n",
+    "実は例外的に、str型の掛け算(int型)はPythonだと計算できる。\n",
+    "\n",
+    "実験として、「ピザ」という文字列を10回繰り返してみよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "5925971b",
+   "metadata": {
+    "id": "9669166f"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ピザピザピザピザピザピザピザピザピザピザ\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"ピザ\"*10)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f5c055bb",
+   "metadata": {
+    "id": "206563bc"
+   },
+   "source": [
+    "### その他の演算子\n",
+    "\n",
+    "四則演算以外の計算もやってみよう。\n",
+    "\n",
+    "#### 剰余(%)\n",
+    "\n",
+    "```a%b```は、aをbで割った余りをint型で返す。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "a2e4df70",
+   "metadata": {
+    "id": "dba0876d"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "<class 'int'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(5%2)\n",
+    "print(type(5%2))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "42fcdf11",
+   "metadata": {
+    "id": "242a1196"
+   },
+   "source": [
+    "#### 累乗(**)\n",
+    "\n",
+    "```a**b```は、aのb乗を表す。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "id": "fc165953",
+   "metadata": {
+    "id": "53c51f9d"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "9\n",
+      "<class 'int'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(3**2)\n",
+    "print(type(3**2))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f37372b9",
+   "metadata": {
+    "id": "4d64f962"
+   },
+   "source": [
+    "### 計算の順序\n",
+    "\n",
+    "計算の順序は基本的な数学の仕組みと同じで、掛け算・割り算が足し算・引き算より優先される。\n",
+    "\n",
+    "また、括弧()を使うと優先順位を指定できる。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "169d62e3",
+   "metadata": {
+    "id": "077ad1ec"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "23\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(5+6*3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "7544bf4c",
+   "metadata": {
+    "id": "f1c9f5f0"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "33\n"
+     ]
+    }
+   ],
+   "source": [
+    "print((5+6)*3)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1ea79a0a",
+   "metadata": {
+    "id": "329d9326"
+   },
+   "source": [
+    "# 2-3. 変数を使ってみよう\n",
+    "\n",
+    "---\n",
+    "\n",
+    "### 計算結果の使い回しや修正を行うと…"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8d9426b1",
+   "metadata": {
+    "id": "9c81b19f"
+   },
+   "source": [
+    "まず、変数を使わずに複雑な計算を行ってみよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "312890d4",
+   "metadata": {
+    "id": "c78af3a8"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "9610000.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "print((3.1*10**3)**2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "174c53f4",
+   "metadata": {
+    "id": "513399e7"
+   },
+   "source": [
+    "この計算結果を他の計算に使いたい、というケースを考える。\n",
+    "\n",
+    "そうすると、また上記の式を全て書かなければいけない。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "id": "afd4eb81",
+   "metadata": {
+    "id": "0fee608e"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "9635000.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "print((3.1*10**3)**2 + 20000*1.25)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2b83cf86",
+   "metadata": {
+    "id": "f1a22190"
+   },
+   "source": [
+    "さらに、最初の計算結果を変更したいケースを考えよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "8ff678c7",
+   "metadata": {
+    "id": "21d9cea9"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "4410000.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "print((2.1*10**3)**2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9a5981a8",
+   "metadata": {
+    "id": "c1e3e7b4"
+   },
+   "source": [
+    "こうすると、後ろのセルの計算式も全て書き換えないといけない。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "id": "c257edb1",
+   "metadata": {
+    "id": "26af2867"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "4435000.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "print((2.1*10**3)**2+20000*1.25)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f3a4e94c",
+   "metadata": {
+    "id": "ab146cff"
+   },
+   "source": [
+    "データサイエンスやAIの計算では、前のセルの計算結果を次のセルで使い回すことが多い。\n",
+    "\n",
+    "そのときにいちいち前のセルの計算式を書いていくのは、非常に面倒くさいことがわかるだろう。\n",
+    "\n",
+    "そこで役に立つのが「変数」という概念だ。"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "63481976",
+   "metadata": {
+    "id": "b9527df6"
+   },
+   "source": [
+    "「変数」とは、データを保存する箱のような概念である。変数に何らかのデータを保存することを「格納」という。\n",
+    "\n",
+    "### 数値データの格納\n",
+    "\n",
+    "まずは最もよく使う数値の格納を学ぼう。\n",
+    "\n",
+    "【例題】変数**```x```**に1を格納して、xの値を出力してみよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "6409ce28",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n"
+     ]
+    }
+   ],
+   "source": [
+    "x=1\n",
+    "print(x)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ea687dfb",
+   "metadata": {
+    "id": "c349caa9"
+   },
+   "source": [
+    "もちろん整数だけでなく、小数も格納して出力できる。\n",
+    "\n",
+    "【問題】 変数```param```に3.1415を格納して、変数paramを出力してみよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "id": "4bc34dd0",
+   "metadata": {
+    "id": "807c724f"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3.1415\n"
+     ]
+    }
+   ],
+   "source": [
+    "param=3.1415\n",
+    "print(param)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2da7627b",
+   "metadata": {
+    "id": "c43bb4f4"
+   },
+   "source": [
+    "### 変数の命名ルール\n",
+    "\n",
+    "変数名には英大文字、英小文字、数字と\"_\"(アンダースコア)が使える。英大文字と小文字は区別されることに気をつけよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "25b50711",
+   "metadata": {
+    "id": "1546cfca"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "-1\n"
+     ]
+    }
+   ],
+   "source": [
+    "param=1\n",
+    "Param=-1\n",
+    "\n",
+    "print(param)\n",
+    "print(Param)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e31a54c9",
+   "metadata": {
+    "id": "8430b27b"
+   },
+   "source": [
+    "なお、変数名の最初が数字だとエラーが起きるので注意しよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "id": "c11cd707",
+   "metadata": {
+    "id": "17c869bd"
+   },
+   "outputs": [
+    {
+     "ename": "SyntaxError",
+     "evalue": "invalid decimal literal (2164524361.py, line 1)",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;36m  Cell \u001b[0;32mIn[38], line 1\u001b[0;36m\u001b[0m\n\u001b[0;31m    2m=10\u001b[0m\n\u001b[0m    ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m invalid decimal literal\n"
+     ]
+    }
+   ],
+   "source": [
+    "2m=10"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "08b683fa",
+   "metadata": {
+    "id": "ba596449"
+   },
+   "source": [
+    "### 文字列の格納\n",
+    "\n",
+    "変数には数値だけでなく、文字列も格納できる。\n",
+    "\n",
+    "【例題】変数```asa```に「おはようございます！」と格納して出力してみよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "id": "21e38d31",
+   "metadata": {
+    "id": "2dd93658"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "おはようございます！\n"
+     ]
+    }
+   ],
+   "source": [
+    "asa='おはようございます！'\n",
+    "print(asa)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7e335aa7",
+   "metadata": {
+    "id": "e8aabeb6"
+   },
+   "source": [
+    "【問題】変数```yoru```に「こんばんは。」と格納して出力してみよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "id": "4ff14291",
+   "metadata": {
+    "id": "588fd1f6"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "こんばんは。\n"
+     ]
+    }
+   ],
+   "source": [
+    "yoru='こんばんは。'\n",
+    "print(yoru)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "066675d4",
+   "metadata": {
+    "id": "9c591bf1"
+   },
+   "source": [
+    "### 変数の意義\n",
+    "\n",
+    "そこで、例題の計算結果を変数```a```に格納してみよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 46,
+   "id": "38235f4a",
+   "metadata": {
+    "id": "965fb09e"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "9610000.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "a=(3.1*10**3)**2\n",
+    "print(a)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a1620005",
+   "metadata": {
+    "id": "64632258"
+   },
+   "source": [
+    "こうすることで、計算結果```a```を以降のセルの計算に利用することができる。\n",
+    "\n",
+    "次に、この計算結果に```20000*1.25```を加えて変数```b```に格納してみよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "id": "ae79f295",
+   "metadata": {
+    "id": "5fe62b97"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "9635000.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "b=a+20000*1.25\n",
+    "print(b)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ef878223",
+   "metadata": {
+    "id": "05a6f866"
+   },
+   "source": [
+    "さらに、```a```と```b```といった変数同士で計算することもできる。\n",
+    "\n",
+    "2つを足し算して変数```c```に格納してみよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 48,
+   "id": "6ae5e61c",
+   "metadata": {
+    "id": "8416b538"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "19245000.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "c=a+b\n",
+    "print(c)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "dc6f5e54",
+   "metadata": {
+    "id": "3669748a"
+   },
+   "source": [
+    "どうだろう？先ほどと比べて、変数を使った式はとても楽に書けたのではないだろうか？\n",
+    "\n",
+    "これが変数の効果で、記述量を大幅に減らしつつ、効率的に次のセルの計算ができるのだ。"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "06fe2fa7",
+   "metadata": {
+    "id": "a9e161e1"
+   },
+   "source": [
+    "【問題】変数```a```に2、変数```b```に3を格納して、```a+b```と```a-b```、```a*b```と```a/b```を計算しよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "id": "021b2f46",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5\n",
+      "-1\n",
+      "6\n",
+      "0.6666666666666666\n"
+     ]
+    }
+   ],
+   "source": [
+    "a=2\n",
+    "b=3\n",
+    "\n",
+    "print(a+b)\n",
+    "print(a-b)\n",
+    "print(a*b)\n",
+    "print(a/b)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5068b482",
+   "metadata": {
+    "id": "304a30c7"
+   },
+   "source": [
+    "【問題】\n",
+    "\n",
+    "アインシュタインの特殊相対性理論で、質量と等価なエネルギー量は$E = mc^2$で求められる。\n",
+    "\n",
+    "りんご一個の重さを$m = 0.1 kg$、光速を$c = 2.9979×10^8 m/s$として、りんご一個の質量と等価なエネルギー量```E```を求めてみよう。\n",
+    "\n",
+    "まずは必要な変数```m```と```c```を定義し、次にエネルギー量を計算して、変数```E```に格納・出力しよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "id": "16d064db",
+   "metadata": {
+    "id": "0c1f5975"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "8987404410000000.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "m=0.1\n",
+    "c=2.9979*10**8\n",
+    "\n",
+    "E=m*c**2\n",
+    "print(E)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6fb7cc18",
+   "metadata": {
+    "id": "1ec3bbd3"
+   },
+   "source": [
+    "#  2-4. 変数の呼び出しと変数の上書き\n",
+    "---\n",
+    "\n",
+    "【例題】 セルを跨いで```x```を「呼び出して」表示し、xの値を```\"python\"```に上書きしてみよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 52,
+   "id": "623cdea5",
+   "metadata": {
+    "id": "61f2b041"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "python\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(x)\n",
+    "x='python'\n",
+    "print(x)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bc0c1904",
+   "metadata": {
+    "id": "1815c719"
+   },
+   "source": [
+    "- このように先ほどの【例題】で1が格納された変数`x`はセルを跨いで保存される\n",
+    "- カーネルの再起動で変数をリセットできる\n",
+    "- `=`は**「代入演算子」**の一つで、変数の値を「上書き保存」する"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f5ee0dc1",
+   "metadata": {
+    "id": "ff2119d9"
+   },
+   "source": [
+    "【問題】　xの値を\"jupyter notebook\"で上書きして、xを出力してみよう。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 53,
+   "id": "10d71f2f",
+   "metadata": {
+    "id": "5f60de6a"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "jupyter notebook\n"
+     ]
+    }
+   ],
+   "source": [
+    "x='jupyter notebook'\n",
+    "print(x)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "847d6b45",
+   "metadata": {
+    "id": "3b1d19d8"
+   },
+   "source": [
+    "【問題】３つの文字列`a = \"pen\"`、 `b =\"pineapple\"`、　`c = apple`がある。次に`ab`を`a + b`とし、`ca`を`c + a`とする。最後に、`abca`を`ab + ca`として、`abca`出力したい。\n",
+    "\n",
+    "以下のセルの抜けている部分を埋めてみよう"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 54,
+   "id": "058b17da",
+   "metadata": {
+    "id": "d01c7a56"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "penpineappleapplepen\n"
+     ]
+    }
+   ],
+   "source": [
+    "a='pen'\n",
+    "b='pineapple'\n",
+    "c='apple'\n",
+    "\n",
+    "ab=a+b\n",
+    "ca=c+a\n",
+    "abca=ab+ca\n",
+    "print(abca)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "041731b9",
+   "metadata": {
+    "id": "7202df4b"
+   },
+   "source": [
+    "#### 【補足】Pythonによる型の自動変換\n",
+    "\n",
+    "実は他のプログラミング言語では、変数に対して型を指定する。\n",
+    "\n",
+    "つまり、`x`という変数をstr型で指定した場合、その`x`の中身には文字列しか入れられない。\n",
+    "\n",
+    "しかしPythonでは、型を宣言せずに変数を扱うため、同じ変数`x`の中身がstr型からint型に変わっても対応できる。\n",
+    "\n",
+    "このとき、自動で型を変換してくれる。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 55,
+   "id": "b882af12",
+   "metadata": {
+    "id": "25002595"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "jupyter notebook\n",
+      "<class 'str'>\n",
+      "10\n",
+      "<class 'int'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "x='jupyter notebook'\n",
+    "print(x)\n",
+    "print(type(x))\n",
+    "x=10\n",
+    "print(x)\n",
+    "print(type(x))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f18a620f",
+   "metadata": {
+    "id": "921f98b8"
+   },
+   "source": [
+    "## 2-5. bool型と比較演算子\n",
+    "【例題】比較演算子を使うと，指定した条件が正しいのか，間違っているのかを判別できる．"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 56,
+   "id": "9abc266a",
+   "metadata": {
+    "id": "3365e06d"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "x=2\n",
+    "y=1\n",
+    "print(x>1)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3c28546b",
+   "metadata": {
+    "id": "d2482015"
+   },
+   "source": [
+    "- 比較演算子の結果はbool型となり、`True`は正しい(真)、`False`は間違っている(偽)を表している\n",
+    "- 比較演算子は他に以下のものがある。  \n",
+    "    - 「==」左右が等しいかどうか  \n",
+    "    - 「!=」左右が異なっているかどうか  \n",
+    "    - 「<=」左の値が右の値以下かどうか  "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "79045026",
+   "metadata": {
+    "id": "e2641edf"
+   },
+   "source": [
+    "【例題】```a=1==1```および```b=1==2```を計算してみよう"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 57,
+   "id": "5a3db870",
+   "metadata": {
+    "id": "e84e10c6"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "a=1==1\n",
+    "print(a)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "64acf00e",
+   "metadata": {
+    "id": "4084e2c0"
+   },
+   "source": [
+    "これは```a```という変数に```1```と```1```というint型の比較結果が入る。左右が等しいので```True```が返されている。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 58,
+   "id": "3c074035",
+   "metadata": {
+    "id": "a6390e5f"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "b=1==2\n",
+    "print(b)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e01ab08a",
+   "metadata": {
+    "id": "eb1bd02e"
+   },
+   "source": [
+    "これは```b```という変数に```1```と```2```の比較結果が入り、左右が等しくないので```False```が返される。"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "16ae01a3",
+   "metadata": {
+    "id": "7f6995b4"
+   },
+   "source": [
+    "なお、下記のように書くとエラーになる。"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "id": "313d9626",
+   "metadata": {
+    "id": "66f5ddb1"
+   },
+   "outputs": [
+    {
+     "ename": "SyntaxError",
+     "evalue": "cannot assign to literal (3621963478.py, line 1)",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;36m  Cell \u001b[0;32mIn[60], line 1\u001b[0;36m\u001b[0m\n\u001b[0;31m    a=1=2\u001b[0m\n\u001b[0m      ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m cannot assign to literal\n"
+     ]
+    }
+   ],
+   "source": [
+    "a=1=2"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5b38887b",
+   "metadata": {
+    "id": "3ad25947"
+   },
+   "source": [
+    "【問題】 `x`に`0.3`を代入し、`y`に`0.1*3`を代入して、`x`と`y`が等しいか比較演算子を使って判定しよう．  \n",
+    "その結果を変数`z`に格納して，`z`を表示してみよう．"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 74,
+   "id": "e0a70c66",
+   "metadata": {
+    "id": "8bfe8405"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "x: 0.3\n",
+      "y: 0.30000000000000004\n",
+      "x==y: False\n",
+      "z: False\n"
+     ]
+    }
+   ],
+   "source": [
+    "x=0.3\n",
+    "y=0.1*3\n",
+    "print('x:',x)\n",
+    "print('y:',y)\n",
+    "print('x==y:',x==y)\n",
+    "z=x==y\n",
+    "print('z:',z)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f7178089",
+   "metadata": {
+    "id": "8a005fe0"
+   },
+   "source": [
+    "- 比較演算子の結果はbool型なので変数に格納できる\n",
+    "- 実はコンピュータでは、2進数と10進数の変換の関係で、小数の計算は厳密な精度ではできない。\n",
+    "- 例えば`0.1`の3倍は`0.30000000000000004`になってしまう.\n",
+    "\n",
+    "### 〜演算子一覧〜\n",
+    "\n",
+    "- 比較演算子（`==`, `!=`, `<`, `>`, `<=`, `>=`, `is`, `<>`）<br>\n",
+    "- 代入演算子(`=`, `+=`, `-=`, `*=`, `/=`, `%=`, `**=`, `//=`, `&=`, `|=`, `^=`, `<<=`, `>>=`)<br>\n",
+    "- ビット演算子(`~`, `&`, `|`, `^`, `<<`, `>>`)<br>\n",
+    "- ブール演算子(`and`, `or`, `not`)<br>\n",
+    "\n",
+    "どんな演算ができるか気になる場合は一度試してみよう。（もちろん暗記する必要はない）"
+   ]
+  }
+ ],
+ "metadata": {
+  "colab": {
+   "provenance": []
+  },
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.12"
+  },
+  "vscode": {
+   "interpreter": {
+    "hash": "31f2aee4e71d21fbe5cf8b01ff0e069b9275f58929596ceb00d14d90e3e16cd6"
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
